@@ -14,8 +14,8 @@ public class UserService {
     @Autowired
     private UserRepo userRepo;
 
-    public Page<UserEntity> getUser(int limit){
-        Pageable lim = PageRequest.of(0,limit);
+    public Page<UserEntity> getUser(int limit,int page){
+        Pageable lim = PageRequest.of(page,limit);
         Page<UserEntity> user = userRepo.findAll(lim);
         return user;
     }
